@@ -1,0 +1,66 @@
+ body {
+            scroll-behavior: smooth;
+            background: #f0f4f8;
+        }
+        
+        section {
+            min-height: 80vh;
+            scroll-margin-top: 70px;
+        }
+        
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        
+        img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .card-tech {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid #0d6efd;
+        }
+        
+        .card-tech:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .validation-badge {
+            background: #d1e7dd;
+            border-left: 4px solid #198754;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .insatisfaisant-badge {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                min-height: auto;
+                padding: 2rem 1rem;
+            }
+            img {
+                max-width: 100%;
+            }
+        }
