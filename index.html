@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,375 +10,576 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./style.css">
-
 </head>
+
 <body>
 
-<!-- Menu de navigation Bootstrap -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <i class="bi bi-hdd-stack"></i> RPi Home Storage
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#presentation">
-                        <i class="bi bi-file-text"></i> Présentation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#materiel">
-                        <i class="bi bi-motherboard"></i> Matériel
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#experimentations">
-                        <i class="bi bi-flask"></i> Expérimentations
-                    </a>
-                </li>
-            </ul>
+    <!-- ================= MENU DE NAVIGATION ================= -->
+    <nav class="navbar navbar-expand-lg bg-dark-custom sticky-top shadow" style="background-color: #1a1a2e;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <i class="bi bi-hdd-stack"></i> RPi Home Storage
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon bg-light rounded"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#presentation">
+                            <i class="bi bi-file-text"></i> Présentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#materiel">
+                            <i class="bi bi-motherboard"></i> Matériel
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#experimentations">
+                            <i class="bi bi-eyeglasses"></i> Expérimentations
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<main class="container py-4">
-    
-    <!-- SECTION 1 : PRÉSENTATION -->
-    <section id="presentation" class="mb-5">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-5 fw-bold text-dark">
-                    <i class="bi bi-raspberry-pi text-danger"></i> RPi Home Storage
-                </h1>
-                <h2 class="h3 text-secondary mb-3">Présentation du projet</h2>
-                <p class="lead">Transformer un Raspberry Pi en serveur de stockage domestique pour centraliser fichiers et images, comme un Google Drive personnel mais auto-hébergé, économique et privé.</p>
-                
-                <div class="row mt-4">
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
+    <main class="container py-4">
+
+        <!-- ================= SECTION 1 : PRÉSENTATION ================= -->
+        <section id="presentation" class="mb-5">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold">
+                        <i class="bi bi-raspberry-pi text-danger"></i> RPi Home Storage
+                    </h1>
+                    <h2 class="h4 text-secondary mt-2">Serveur de fichiers et galerie photo domestique</h2>
+                    <hr>
+                    <p class="lead">Transformer un Raspberry Pi en <strong>serveur de fichiers (Nextcloud)</strong> et
+                        <strong>serveur de photos (PhotoPrism)</strong> avec <strong>notification LED physique</strong>
+                        lors de l'<strong>ajout ou de la suppression</strong> de fichiers — une alternative économique
+                        ($), privée et auto-hébergée aux services cloud commerciaux.
+                    </p>
+
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-2">
+                            <div class="border rounded p-3 text-center bg-white h-100 service-card">
                                 <i class="bi bi-folder2-open fs-1 text-primary"></i>
-                                <h5 class="card-title mt-2">Serveur de fichiers</h5>
-                                <p class="card-text small">Type Google Drive perso</p>
+                                <h5 class="mt-2">Nextcloud</h5>
+                                <p class="small">Serveur de fichiers type Dropbox</p>
+                                <code>http://ip:8080</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="border rounded p-3 text-center bg-white h-100 service-card">
+                                <i class="bi bi-images fs-1 text-danger"></i>
+                                <h5 class="mt-2">PhotoPrism</h5>
+                                <p class="small">Galerie photo type Google Photos</p>
+                                <code>http://ip:2342</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="border rounded p-3 text-center bg-white h-100 service-card">
+                                <i class="bi bi-circle-fill fs-1 text-primary"></i>
+                                <h5 class="mt-2">LED Notification</h5>
+                                <p class="small">LED Bleue = Ajout de photo</p>
+                                <span class="badge bg-primary">GPIO 17 (LED Bleue)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <i class="bi bi-images fs-1 text-primary"></i>
-                                <h5 class="card-title mt-2">Stockage d'images</h5>
-                                <p class="card-text small">Avec galerie intégrée</p>
-                            </div>
+
+                    <div class="alert alert-secondary mt-3">
+                        <i class="bi bi-info-circle"></i> <strong>Objectif du projet :</strong> Valider la faisabilité
+                        d'un serveur de stockage domestique low-cost (budget ~80$) sur Raspberry Pi, avec interfaces web
+                        et retour physique par LED.
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="bg-white rounded-4 shadow p-3">
+                        <i class="bi bi-raspberry-pi display-1 text-danger"></i>
+                        <h5 class="mt-2">Raspberry Pi 4B</h5>
+                        <p class="text-muted small">1 Go RAM - 64 bits<br>Debian GNU/Linux 12</p>
+                        <hr>
+                        <i class="bi bi-hdd-stack fs-2"></i>
+                        <p class="mt-1"><strong>Stockage :</strong> USB 128 Go</p>
+                        <hr>
+                        <i class="bi bi-circle-fill fs-2 text-primary"></i>
+                        <p><strong>Notification :</strong> LED Bleue (GPIO 17)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2 : MATÉRIEL ================= -->
+        <section id="materiel">
+            <h2 class="section-title"><i class="bi bi-motherboard"></i> Technologies matérielles expérimentées</h2>
+
+            <div class="row g-4">
+                <!-- Raspberry Pi 4B -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-tech shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-cpu"></i> Raspberry Pi 4 Model B</h5>
+                            <p><strong>Fabricant :</strong> Raspberry Pi Foundation<br>
+                                <strong>Modèle :</strong> 4B - 1 Go RAM<br>
+                                <strong><a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/"
+                                        target="_blank">🔗 Fiche technique</a></strong><br>
+                                <strong>Usage :</strong> Serveur central hébergeant Nextcloud, PhotoPrism et gestion des
+                                LEDs.<br>
+                                <strong>Justification :</strong> Faible consommation (5-8W), communauté active, prix
+                                abordable (~45$).<br>
+                                <strong>Membre(s) :</strong> <span class="member-badge"><i class="bi bi-person"></i>
+                                    Taoufik - Neo - Evann</span>
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <i class="bi bi-wifi fs-1 text-primary"></i>
-                                <h5 class="card-title mt-2">Accessible depuis ton réseau</h5>
-                                <p class="card-text small">Local uniquement</p>
-                            </div>
+                </div>
+
+                <!-- USB 128 Go -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-tech shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-hdd"></i> USB 128 Go</h5>
+                            <p><strong>Fabricant :</strong> Kingston / SanDisk<br>
+                                <strong>Modèle :</strong> USB - 128 Go<br>
+                                <strong><a href="https://www.kingston.com/fr/ssd" target="_blank">🔗 Fiche
+                                        technique</a></strong><br>
+                                <strong>Usage :</strong> Stockage persistant des fichiers et photos.<br>
+                                <strong>Justification :</strong> Vitesse USB 3.0 (~350 MB/s), robuste, silence absolu
+                                (~25$).<br>
+                                <strong>Membre(s) :</strong> <span class="member-badge"><i class="bi bi-person"></i>
+                                    Taoufik - Neo - Evann</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="alert alert-info mt-3">
-                    <i class="bi bi-info-circle"></i> <strong>Architecture visée :</strong> Raspberry Pi OS + Docker + Nextcloud (fichiers) + PhotoPrism (photos) + disque dur externe + LEDs GPIO.
-                </div>
-                <p class="text-muted"><i class="bi bi-calendar"></i> Projet réalisé dans le cadre d’expérimentations matérielles pour valider la faisabilité d’un serveur de stockage domestique low-cost.</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="img0.png" alt="Raspberry Pi" class="img-fluid shadow rounded">
-            </div>
-        </div>
-    </section>
 
-    <!-- SECTION 2 : MATÉRIEL -->
-    <section id="materiel" class="mb-5">
-        <h2 class="mb-4"><i class="bi bi-motherboard"></i> Technologies matérielles expérimentées</h2>
-        <div class="row g-4">
-            
-            <!-- Carte 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-cpu"></i> Raspberry Pi 4 Model B
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> Raspberry Pi Foundation<br>
-                            <strong>Modèle :</strong> 4B - 4GB RAM<br>
-                            <strong><a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> Fiche technique</a></strong><br>
-                            <strong>Usage :</strong> Serveur central hébergeant Nextcloud, PhotoPrism et la gestion des disques.<br>
-                            <strong>Justification :</strong> Faible consommation électrique, faible encombrement, communauté active, prix abordable (~60€).
-                        </p>
+                <!-- Carte microSD -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-tech shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-sd-card"></i> Carte microSD</h5>
+                            <p><strong>Fabricant :</strong> SanDisk<br>
+                                <strong>Modèle :</strong> Ultra 128 Go A1<br>
+                                <strong><a href="https://www.sandisk.com/home/memory-cards/microsd" target="_blank">🔗
+                                        Fiche technique</a></strong><br>
+                                <strong>Usage :</strong> Système d'exploitation et Docker.<br>
+                                <strong>Justification :</strong> Haute vitesse de lecture (120 MB/s), fiable (~10$).<br>
+                                <strong>Membre(s) :</strong> <span class="member-badge"><i class="bi bi-person"></i>
+                                    Taoufik - Neo - Evann</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LED bleue (GPIO 17) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-tech shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-lightbulb fs-4 text-primary"></i> LED
+                                Bleue - Notification</h5>
+                            <p><strong>Fabricant :</strong> Generic<br>
+                                <strong>Modèle :</strong> LED 5mm Bleue<br>
+                                <strong><a href="https://www.raspberrypi.com/documentation/accessories/gpio.html"
+                                        target="_blank">🔗 Documentation GPIO</a></strong><br>
+                                <strong>Usage :</strong> Clignote lors de l'ajout.<br>
+                                <strong>Justification :</strong> Feedback visuel immédiat et intuitif.<br>
+                                <strong>Membre(s) :</strong> <span class="member-badge"><i class="bi bi-person"></i>
+                                    Taoufik - Neo </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alimentation -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-tech shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="bi bi-plug"></i> Alimentation USB-C</h5>
+                            <p><strong>Fabricant :</strong> Raspberry Pi<br>
+                                <strong>Modèle :</strong> 5.1V 3A officiel<br>
+                                <strong><a href="https://www.raspberrypi.com/products/type-c-power-supply/"
+                                        target="_blank">🔗 Fiche technique</a></strong><br>
+                                <strong>Usage :</strong> Alimentation stable du Raspberry Pi.<br>
+                                <strong>Justification :</strong> Nécessaire pour USB et usage serveur 24/7 (~10$).<br>
+                                <strong>Membre(s) :</strong> <span class="member-badge"><i class="bi bi-person"></i>
+                                    Taoufik - Neo - Evann</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3 : EXPÉRIMENTATIONS ================= -->
+        <section id="experimentations">
+            <h2 class="section-title"><i class="bi bi-flask"></i> Expérimentations matérielles et logicielles</h2>
+
+            <!-- Exp 1 : Installation Raspberry Pi OS -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-lightning-charge text-warning"></i> Exp. 1 : Installation de Raspberry Pi OS
+                    </h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Taoufik - Neo</span></p>
+                    <p><strong>Technologie(s) :</strong> Raspberry Pi 4B, microSD 128 Go</p>
+                    <p><strong>Objectif :</strong> Vérifier que le RPi4 démarre correctement et supporte un usage
+                        serveur 24/7.</p>
+                    <p><strong>Contexte :</strong> Flashage de Raspberry Pi OS Lite (64-bit) sur microSD via Raspberry
+                        Pi Imager. Configuration SSH, connexion réseau filaire (Ethernet). Température mesurée via
+                        <code>vcgencmd measure_temp</code> toutes les heures pendant 6h.
+                    </p>
+
+                    <div class="main-image">
+                        <a href="./img/linux.jpeg" data-lightbox="exp1" data-title="Installation de Raspberry Pi OS">
+                            <img src="./img/linux.jpeg" alt="Installation Linux" class="gallery-img">
+                        </a>
+                    </div>
+
+                    <p><strong>Résultat :</strong> Boot réussi en ~25 secondes. Température au repos : 42°C. En charge
+                        (installation de Docker) : 58°C. Stabilité parfaite sur 48h.</p>
+                    <p><strong>Avis :</strong> Puissance suffisante pour un serveur de stockage domestique. Limite :
+                        sans ventilateur, température monte à 65°C en été. Rapport qualité-prix excellent (~45$).</p>
+                    <div class="validation-success">
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        — Le RPi4 1Go peut servir de serveur de stockage domestique sans surchauffe problématique.
                     </div>
                 </div>
             </div>
 
-            <!-- Carte 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-hdd"></i> SSD Externe 1TB
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> Samsung<br>
-                            <strong>Modèle :</strong> T7 Portable SSD<br>
-                            <strong><a href="https://semiconductor.samsung.com/consumer-storage/portable-ssd/t7/" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> Spécifications</a></strong><br>
-                            <strong>Usage :</strong> Stockage persistant des fichiers et photos.<br>
-                            <strong>Justification :</strong> Vitesse USB 3.1, robuste, silence absolu.
-                        </p>
+            <!-- Exp 2 : Montage USB -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-hdd-stack text-info"></i> Exp. 2 : Montage et accès au USB</h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Taoufik - Neo - Evann</span></p>
+                    <p><strong>Technologie(s) :</strong> USB 128 Go, port USB 3.0</p>
+                    <p><strong>Objectif :</strong> Valider la détection, le montage automatique et la vitesse de
+                        transfert du SSD.</p>
+                    <p><strong>Contexte :</strong> Connexion du USB au port USB 3.0. Formatage en ext4. Montage dans
+                        <code>/mnt/storage</code>. Ajout au fstab pour montage automatique. Test de vitesse avec
+                        <code>dd</code> et copie de fichiers depuis un PC via Samba.
+                    </p>
+
+                    <div class="main-image">
+                        <a href="./img/usb.jpeg" data-lightbox="exp2" data-title="Montage du USB">
+                            <img src="./img/usb.jpeg" alt="USB montage" class="gallery-img">
+                        </a>
+                    </div>
+
+                    <p><strong>Résultat :</strong> Lecture séquentielle : 350 MB/s, écriture : 320 MB/s. Montage
+                        automatique réussi via fstab. Pas de déconnexion intempestive.</p>
+                    <p><strong>Avis :</strong> Le USB est un énorme plus pour la réactivité et la fiabilité.
+                        Limite : le port USB partage la bande passante avec Ethernet, mais reste acceptable.</p>
+                    <div class="validation-success">
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        — La USB est parfaitement adapté et recommandé pour tout serveur domestique sur RPi.
                     </div>
                 </div>
             </div>
 
-            <!-- Carte 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-sd-card"></i> Carte microSD
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> SanDisk<br>
-                            <strong>Modèle :</strong> Extreme Pro 64GB A2<br>
-                            <strong><a href="https://www.sandisk.com/home/memory-cards/microsd/extreme-pro-microsd" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> Spécifications</a></strong><br>
-                            <strong>Usage :</strong> Hébergement du système d’exploitation.<br>
-                            <strong>Justification :</strong> Haute vitesse de lecture/écriture.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <!-- Exp 3 : Nextcloud -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-cloud-upload text-primary"></i> Exp. 3 : Installation de Nextcloud avec Docker
+                    </h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Neo</span></p>
+                    <p><strong>Technologie(s) :</strong> RPi4, Docker, Nextcloud, USB</p>
+                    <p><strong>Objectif :</strong> Vérifier que Nextcloud tourne correctement et permet
+                        l'upload/partage/suppression de fichiers.</p>
+                    <p><strong>Contexte :</strong> Installation de Docker + Docker Compose. Création d'un fichier
+                        <code>docker-compose.yml</code> avec Nextcloud + MariaDB + Redis. Montage de la USB comme volume
+                        de données. Accès via navigateur depuis un PC du même réseau.
+                    </p>
 
-            <!-- Carte 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-ethernet"></i> Câble Ethernet + Alimentation
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> UGREEN / Raspberry Pi<br>
-                            <strong>Modèle :</strong> Cat6 3m / 5.1V 3A USB-C<br>
-                            <strong><a href="https://www.raspberrypi.com/products/type-c-power-supply/" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> Alim officielle</a></strong><br>
-                            <strong>Usage :</strong> Connectivité réseau stable.<br>
-                            <strong>Justification :</strong> Ethernet évite les pertes Wi-Fi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carte 5 : LEDs -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-led-on"></i> LEDs Rouge et Verte
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> Generic<br>
-                            <strong>Modèle :</strong> LED 5mm (Rouge et Verte)<br>
-                            <strong><a href="https://www.raspberrypi.com/documentation/accessories/gpio.html" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> GPIO Documentation</a></strong><br>
-                            <strong>Usage :</strong> Indicateur visuel d’ajout (vert clignotant) et suppression (rouge clignotant) de fichiers.<br>
-                            <strong>Justification :</strong> Feedback physique immédiat pour l’utilisateur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carte 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 card-tech shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary">
-                            <i class="bi bi-wifi"></i> Module WiFi
-                        </h5>
-                        <p class="card-text">
-                            <strong>Fabricant :</strong> Built-in RPi4<br>
-                            <strong>Modèle :</strong> 802.11ac<br>
-                            <strong><a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html" target="_blank" class="text-decoration-none"><i class="bi bi-link-45deg"></i> Documentation</a></strong><br>
-                            <strong>Usage :</strong> Accès réseau alternatif.<br>
-                            <strong>Justification :</strong> Solution de secours si Ethernet indisponible.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3 : EXPÉRIMENTATIONS -->
-    <section id="experimentations">
-        <h2 class="mb-4"><i class="bi bi-flask"></i> Expérimentations matérielles</h2>
-        
-        <!-- Exp 1 -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header bg-white">
-                <h3 class="h5 mb-0"><i class="bi bi-lightning-charge text-warning"></i> Exp. 1 : Installation et boot du Raspberry Pi 4</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><i class="bi bi-motherboard"></i> Technologies :</strong> Raspberry Pi 4, microSD 64GB, alimentation USB-C</p>
-                <p><strong><i class="bi bi-bullseye"></i> Objectif :</strong> Vérifier que le RPi4 démarre correctement et supporte un usage serveur 24/7 sans surchauffe.</p>
-                <p><strong><i class="bi bi-gear"></i> Contexte :</strong> Flashage de Raspberry Pi OS Lite sur microSD via Raspberry Pi Imager. Connexion HDMI pour premier boot, puis passage en SSH. Température mesurée via <code>vcgencmd measure_temp</code> toutes les heures pendant 6h.</p>
-                
-                <img src="img0.png" alt="Raspberry Pi 4 setup">
-                
-                <p><strong><i class="bi bi-check-circle text-success"></i> Résultat :</strong> Boot réussi en 25 secondes. Température au repos : 42°C. En charge (installation de Docker) : 58°C. Stabilité parfaite.</p>
-                <p><strong><i class="bi bi-chat-dots"></i> Avis :</strong> Puissance suffisante pour un serveur de stockage domestique. Limite : sans ventilateur, température monte à 65°C en été. Potentiel excellent pour le coût.</p>
-                
-                <div class="validation-badge">
-                    <i class="bi bi-check-circle-fill text-success"></i> <strong>Avis final : Validation de l’hypothèse</strong> — Le RPi4 peut servir de serveur de stockage domestique sans surchauffe problématique.
-                </div>
-            </div>
-        </div>
-
-        <!-- Exp 2 -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header bg-white">
-                <h3 class="h5 mb-0"><i class="bi bi-hdd-stack text-info"></i> Exp. 2 : Montage et accès au SSD externe</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><i class="bi bi-motherboard"></i> Technologies :</strong> SSD Samsung T7, port USB 3.0 du RPi4</p>
-                <p><strong><i class="bi bi-bullseye"></i> Objectif :</strong> Valider la détection, le montage automatique et la vitesse de transfert du SSD.</p>
-                <p><strong><i class="bi bi-gear"></i> Contexte :</strong> Connexion du SSD au port USB 3.0. Formatage en ext4. Montage dans <code>/mnt/storage</code>. Test de vitesse avec <code>dd</code> et <code>hdparm</code>. Copie d’un fichier de 5 Go depuis un ordinateur via Samba.</p>
-                
-                <img src="img0.png" alt="SSD detection">
-                
-                <p><strong><i class="bi bi-check-circle text-success"></i> Résultat :</strong> Lecture séquentielle : 380 MB/s, écriture : 340 MB/s. Montage automatique réussi via fstab. Pas de déconnexion intempestive.</p>
-                <p><strong><i class="bi bi-chat-dots"></i> Avis :</strong> Le SSD externe est un énorme plus pour la réactivité et la fiabilité. Limite : le port USB partage la bande passante avec Ethernet, mais reste acceptable.</p>
-                
-                <div class="validation-badge">
-                    <i class="bi bi-check-circle-fill text-success"></i> <strong>Avis final : Validation de l’hypothèse</strong> — Le SSD est parfaitement adapté et recommandé pour tout serveur domestique sur RPi.
-                </div>
-            </div>
-        </div>
-
-        <!-- Exp 3 -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header bg-white">
-                <h3 class="h5 mb-0"><i class="bi bi-cloud-upload text-primary"></i> Exp. 3 : Test de Nextcloud sur RPi4 avec Docker</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><i class="bi bi-motherboard"></i> Technologies :</strong> RPi4, Docker, Nextcloud, SSD externe</p>
-                <p><strong><i class="bi bi-bullseye"></i> Objectif :</strong> Vérifier que Nextcloud tourne correctement et permet l’upload/partage de fichiers.</p>
-                <p><strong><i class="bi bi-gear"></i> Contexte :</strong> Installation de Docker + Docker Compose. Fichier compose avec Nextcloud + MariaDB + Redis. Montage du SSD comme volume de données. Accès via navigateur depuis un PC du même réseau.</p>
-                
-                <img src="img0.png" alt="Nextcloud interface">
-                
-                <p><strong><i class="bi bi-check-circle text-success"></i> Résultat :</strong> Nextcloud fonctionne fluide pour 1 utilisateur. Upload d’un fichier de 2 Go en 35 secondes. Consommation CPU max à 70% pendant l’upload.</p>
-                <p><strong><i class="bi bi-chat-dots"></i> Avis :</strong> Nextcloud est un peu lourd pour le RPi4, mais tout à fait utilisable. Limite : plusieurs utilisateurs simultanés pourraient ralentir le système.</p>
-                
-                <div class="validation-badge">
-                    <i class="bi bi-check-circle-fill text-success"></i> <strong>Avis final : Validation de l’hypothèse</strong> — Nextcloud est viable pour un usage personnel ou petite famille.
-                </div>
-            </div>
-        </div>
-
-        <!-- Exp 4 : LEDs GPIO -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header bg-white">
-                <h3 class="h5 mb-0"><i class="bi bi-led-on text-success"></i> Exp. 4 : LEDs GPIO - Vert (ajout) / Rouge (suppression)</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><i class="bi bi-motherboard"></i> Technologies :</strong> RPi4, LED Verte (GPIO17), LED Rouge (GPIO27), résistances 330Ω</p>
-                <p><strong><i class="bi bi-bullseye"></i> Objectif :</strong> Créer un feedback visuel physique : LED verte clignote lors d’un ajout de fichier, LED rouge clignote lors d’une suppression.</p>
-                <p><strong><i class="bi bi-gear"></i> Contexte :</strong> Branchement des LEDs sur les broches GPIO avec résistances. Script Python utilisant la librairie <code>watchdog</code> pour surveiller le dossier <code>/mnt/storage</code>. À chaque création de fichier → LED verte clignote 3 fois. À chaque suppression → LED rouge clignote 3 fois.</p>
-                
-                <img src="img0.png" alt="LEDs GPIO setup">
-                
-                <div class="code-block">
-                    <strong> Script Python (gpio_notify.py) :</strong><br>
-                    <code>
-import RPi.GPIO as GPIO<br>
-import time<br>
-from watchdog.observers import Observer<br>
-from watchdog.events import FileSystemEventHandler<br><br>
-LED_VERT = 17<br>
-LED_ROUGE = 27<br><br>
-GPIO.setmode(GPIO.BCM)<br>
-GPIO.setup(LED_VERT, GPIO.OUT)<br>
-GPIO.setup(LED_ROUGE, GPIO.OUT)<br><br>
-def blink(pin, times=3, speed=0.2):<br>
-    for _ in range(times):<br>
-        GPIO.output(pin, True)<br>
-        time.sleep(speed)<br>
-        GPIO.output(pin, False)<br>
-        time.sleep(speed)<br><br>
-class Handler(FileSystemEventHandler):<br>
-    def on_created(self, event):<br>
-        blink(LED_VERT)  # Vert clignote à l'ajout<br>
-    def on_deleted(self, event):<br>
-        blink(LED_ROUGE)  # Rouge clignote à la suppression<br><br>
-observer = Observer()<br>
-observer.schedule(Handler(), "/mnt/storage", recursive=True)<br>
-observer.start()<br>
-try:<br>
-    while True:<br>
-        time.sleep(1)<br>
-except KeyboardInterrupt:<br>
-    observer.stop()<br>
-observer.join()<br>
-GPIO.cleanup()
+                    <div class="code-block">
+                        <strong>docker-compose.yml (extrait) :</strong><br>
+                        <code>
+services:<br>
+  nextcloud:<br>
+    image: nextcloud:latest<br>
+    ports:<br>
+      - "8080:80"<br>
+    volumes:<br>
+      - nextcloud_data:/var/www/html<br>
+    restart: unless-stopped
                     </code>
-                </div>
-                
-                <p><strong><i class="bi bi-check-circle text-success"></i> Résultat :</strong> Les LEDs réagissent instantanément aux événements fichiers (création/suppression). Testé avec copie/suppression manuelle et via Nextcloud. Consommation CPU négligeable (~1%).</p>
-                <p><strong><i class="bi bi-chat-dots"></i> Avis :</strong> Solution très efficace pour un feedback utilisateur physique. Vert clignotant → ajout réussi. Rouge clignotant → suppression effectuée. Limite : nécessite un script en arrière-plan (systemd).</p>
-                
-                <div class="validation-badge">
-                    <i class="bi bi-check-circle-fill text-success"></i> <strong>Avis final : Validation de l’hypothèse</strong> — Les LEDs GPIO offrent un retour visuel clair et satisfaisant pour les opérations d’ajout/suppression.
+                    </div>
+
+
+                    <div class="row-images">
+                        <div class="image-item">
+                            <a href="./img/nextcloud.jpeg" data-lightbox="exp3" data-title="Installation Nextcloud">
+                                <img src="./img/nextcloud.jpeg" alt="Nextcloud install" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Interface Nextcloud</div>
+                        </div>
+                        <div class="image-item">
+                            <a href="./img/app-nextcloud.jpeg" data-lightbox="exp3"
+                                data-title="Application Nextcloud mobile">
+                                <img src="./img/app-nextcloud.jpeg" alt="Nextcloud app" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Application mobile</div>
+                        </div>
+                        <div class="image-item">
+                            <video class="gallery-img" controls style="cursor: pointer;">
+                                <source src="./img/test1.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la vidéo.
+                            </video>
+                            <div class="image-caption">Démonstration Nextcloud (upload de fichier)</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Résultat :</strong> Nextcloud fonctionne fluide pour 1 utilisateur. Upload d'un fichier
+                        de 500 Mo en ~15 secondes. Suppression instantanée. Consommation CPU max à 70% pendant l'upload.
+                    </p>
+                    <p><strong>Avis :</strong> Nextcloud est un peu lourd pour le RPi4 (1 Go RAM), mais tout à fait
+                        utilisable pour usage personnel. Limite : plusieurs utilisateurs simultanés pourraient saturer
+                        la RAM.</p>
+                    <div class="validation-success">
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        — Nextcloud est viable pour un usage personnel ou petite famille.
+                    </div>
                 </div>
             </div>
+
+            <!-- Exp 4 : PhotoPrism -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-images text-danger"></i> Exp. 4 : Installation de PhotoPrism</h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Taoufik</span></p>
+                    <p><strong>Technologie(s) :</strong> RPi4, Docker, PhotoPrism, USB</p>
+                    <p><strong>Objectif :</strong> Disposer d'une galerie photo moderne (alternative à Google Photos)
+                        sur RPi4.</p>
+                    <p><strong>Contexte :</strong> Installation via Docker Compose avec configuration allégée
+                        (désactivation TensorFlow, reconnaissance faciale, classification). Utilisation de SQLite au
+                        lieu de PostgreSQL pour réduire la consommation RAM. Upload de 50 photos via navigateur et
+                        application mobile.</p>
+
+                    <div class="code-block">
+                        <strong>Configuration allégée :</strong><br>
+                        <code>
+environment:<br>
+  PHOTOPRISM_DISABLE_TENSORFLOW: "true"<br>
+  PHOTOPRISM_DISABLE_FACES: "true"<br>
+  PHOTOPRISM_DISABLE_CLASSIFICATION: "true"<br>
+  PHOTOPRISM_DATABASE_DRIVER: "sqlite"
+                    </code>
+                    </div>
+
+
+                    <div class="row-images">
+                        <div class="image-item">
+                            <a href="./img/photoprism.jpeg" data-lightbox="exp4" data-title="Installation PhotoPrism">
+                                <img src="./img/photoprism.jpeg" alt="PhotoPrism install" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Interface PhotoPrism</div>
+                        </div>
+                        <div class="image-item">
+                            <a href="./img/app-photoprism.jpeg" data-lightbox="exp4"
+                                data-title="Application PhotoPrism mobile">
+                                <img src="./img/app-photoprism.jpeg" alt="PhotoPrism app" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Application mobile</div>
+                        </div>
+                        <div class="image-item">
+                            <video class="gallery-img" controls style="cursor: pointer;">
+                                <source src="./img/test2.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la vidéo.
+                            </video>
+                            <div class="image-caption">LED qui clignote à l'ajout d'une photo</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Résultat :</strong> PhotoPrism accessible sur <code>http://ip:2342</code>. Indexation de
+                        50 photos en ~2 minutes. Interface fluide, recherche par date/lieu fonctionnelle.</p>
+                    <p><strong>Avis :</strong> PhotoPrism est bien adapté au RPi4 après désactivation des
+                        fonctionnalités IA lourdes. Interface moderne, reconnaissance de base satisfaisante.</p>
+                    <div class="validation-success">
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        — PhotoPrism est une excellente solution de galerie photo pour RPi4.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exp 5 : LEDs GPIO -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-circle-fill text-primary"></i> Exp. 5 : LED GPIO - Bleue</h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Taoufik - Neo</span></p>
+                    <p><strong>Technologie(s) :</strong> RPi4, LED Bleue (GPIO 17), résistance 220Ω</p>
+                    <p><strong>Objectif :</strong> Créer un feedback visuel physique : LED bleue clignote lors d'un
+                        ajout de photo.</p>
+                    <p><strong>Contexte :</strong> Branchement de la LED sur la broche GPIO 17 avec résistance 220Ω.
+                        Script Python utilisant la bibliothèque <code>gpiozero</code>. Surveillance du dossier
+                        <code>/photoprism/originals</code>. À chaque création de fichier image → LED bleue clignote.
+                        Service systemd pour démarrage automatique.
+                    </p>
+
+                    <div class="code-block">
+                        <strong>Script Python (led_notify.py) :</strong><br>
+                        <code>
+from gpiozero import LED<br>
+import time, os<br><br>
+led_bleue = LED(17)<br><br>
+def blink_bleue(times=3):<br>
+    for _ in range(times):<br>
+        led_bleue.on(); time.sleep(0.2)<br>
+        led_bleue.off(); time.sleep(0.2)<br><br>
+# Surveillance du dossier<br>
+# on_created → blink_bleue()
+                    </code>
+                    </div>
+
+                    <div class="row-images">
+                        <div class="image-item">
+                            <a href="./img/raspberry.jpeg" data-lightbox="exp5" data-title="Raspberry Pi avec LED">
+                                <img src="./img/raspberry.jpeg" alt="Raspberry Pi" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Raspberry Pi avec LED</div>
+                        </div>
+                        <div class="image-item">
+                            <a href="./img/montage.jpeg" data-lightbox="exp5" data-title="Montage physique LED">
+                                <img src="./img/montage.jpeg" alt="Montage LED" class="gallery-img">
+                            </a>
+                            <div class="image-caption">Montage électronique</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Résultat :</strong> La LED réagit instantanément aux ajouts de fichiers. Testé avec
+                        upload via navigateur et application mobile. Consommation CPU négligeable.</p>
+                    <p><strong>Avis :</strong> Solution très efficace pour un feedback utilisateur physique. Bleue
+                        clignotante → ajout réussi. Limite : nécessite un script en arrière-plan (systemd).</p>
+                    <div class="validation-success">
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        — La LED GPIO offre un retour visuel clair et satisfaisant pour les opérations d'ajout.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exp 6 : Immich (ABANDONNÉ) -->
+            <div class="card exp-card">
+                <div class="card-body">
+                    <h3><i class="bi bi-exclamation-triangle text-warning"></i> Exp. 6 : Test d'Immich (solution
+                        abandonnée)</h3>
+                    <p><strong>Membre(s) :</strong> <span class="member-badge">Evann</span></p>
+                    <p><strong>Technologie(s) :</strong> RPi4, Docker, Immich, PostgreSQL, Redis</p>
+                    <p><strong>Objectif :</strong> Tester Immich comme alternative à PhotoPrism pour la gestion de
+                        photos.</p>
+                    <p><strong>Contexte :</strong> Installation via Docker Compose officiel. Configuration de PostgreSQL
+                        et Redis. Tentative de résolution des problèmes d'authentification et de connexion.</p>
+
+                    <div class="code-block">
+                        <strong>Problèmes rencontrés :</strong><br>
+                        <code>
+- PostgresError: password authentication failed (malgré configuration correcte)<br>
+- Connection reset by peer (connexion refusée sur le port 2283)<br>
+- Complexité de configuration (variables d'environnement, volumes)<br>
+- Consommation mémoire élevée (~1.2 Go)
+                    </code>
+                    </div>
+
+                    <p><strong>Résultat :</strong> Après plusieurs heures de dépannage, Immich ne parvenait pas à
+                        démarrer correctement. Le service web restait inaccessible malgré des conteneurs PostgreSQL et
+                        Redis fonctionnels.</p>
+                    <p><strong>Avis :</strong> Immich est une solution prometteuse mais trop complexe et gourmande en
+                        ressources pour un Raspberry Pi 4B 1Go. La configuration est lourde et le débogage difficile.
+                        PhotoPrism est plus léger et plus simple à installer.</p>
+                    <div class="validation-fail">
+                        <i class="bi bi-x-circle-fill"></i> <strong>Avis final : Technologie insatisfaisante</strong> —
+                        Immich est trop complexe et trop gourmand pour notre configuration. Nécessité de trouver une
+                        technologie de remplacement (PhotoPrism).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RÉCAPITULATIF ARCHITECTURE ================= -->
+        <section class="mt-5">
+            <h2 class="section-title"><i class="bi bi-diagram-3"></i> Architecture réseau</h2>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Rôle</th>
+                                    <th>Port</th>
+                                    <th>Accès</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nextcloud</td>
+                                    <td>Serveur de fichiers</td>
+                                    <td>8080</td>
+                                    <td><code>http://ip:8080</code></td>
+                                    <td><span class="badge bg-success">Actif</span></td>
+                                </tr>
+                                <tr>
+                                    <td>PhotoPrism</td>
+                                    <td>Galerie photo</td>
+                                    <td>2342</td>
+                                    <td><code>http://ip:2342</code></td>
+                                    <td><span class="badge bg-success">Actif</span></td>
+                                </tr>
+                                <tr>
+                                    <td>LED Bleue</td>
+                                    <td>Notification ajout</td>
+                                    <td>GPIO 17</td>
+                                    <td>Physique</td>
+                                    <td><span class="badge bg-success">Actif</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Immich</td>
+                                    <td>Galerie (abandonné)</td>
+                                    <td>2283</td>
+                                    <td>-</td>
+                                    <td><span class="badge bg-danger">Abandonné</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-dark mt-3">
+                        <i class="bi bi-hdd-network"></i> <strong>Adresse IP :</strong> IP fixe sur le réseau local
+                        (afficher avec <code>hostname -I</code>)
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">
+                <i class="bi bi-calendar"></i> Projet d'expérimentation matérielle — Avril 2026
+            </p>
+            <p class="mb-2">
+                <i class="bi bi-check-circle-fill text-success"></i> Services opérationnels : Nextcloud (port 8080) +
+                PhotoPrism (port 2342) + LED GPIO
+            </p>
+            <p class="mb-0 small">
+                <i class="bi bi-link-45deg"></i> Sources :
+                <a href="https://nextcloud.com/" target="_blank" class="text-white-50">Nextcloud</a> |
+                <a href="https://www.raspberrypi.com/" target="_blank" class="text-white-50">Raspberry Pi</a> |
+                <a href="https://photoprism.app/" target="_blank" class="text-white-50">PhotoPrism</a> |
+                <a href="https://gpiozero.readthedocs.io/" target="_blank" class="text-white-50">gpiozero</a>
+            </p>
         </div>
+    </footer>
 
-        <!-- Exp 5 : PhotoPrism -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header bg-white">
-                <h3 class="h5 mb-0"><i class="bi bi-images text-danger"></i> Exp. 5 : PhotoPrism (galerie photo) sur RPi4</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><i class="bi bi-motherboard"></i> Technologies :</strong> RPi4, Docker, PhotoPrism, SSD</p>
-                <p><strong><i class="bi bi-bullseye"></i> Objectif :</strong> Tester PhotoPrism pour la gestion de photos.</p>
-                <p><strong><i class="bi bi-gear"></i> Contexte :</strong> Installation via Docker Compose officiel PhotoPrism. Upload de 100 photos. Activation de l’indexation automatique.</p>
-                
-                <img src="img0.png" alt="PhotoPrism interface">
-                
-                <p><strong><i class="bi bi-check-circle text-success"></i> Résultat :</strong> PhotoPrism tourne correctement avec des ressources modérées. Indexation de 100 photos en 3 minutes.</p>
-                <p><strong><i class="bi bi-chat-dots"></i> Avis :</strong> PhotoPrism est bien adapté au RPi4. Interface propre, recherche par date/lieu.</p>
-                
-                <div class="validation-badge">
-                    <i class="bi bi-check-circle-fill text-success"></i> <strong>Avis final : Validation de l’hypothèse</strong> — PhotoPrism est une excellente solution de galerie photo pour RPi4.
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-dark text-white py-4 mt-5">
-    <div class="container text-center">
-        <p class="mb-2">
-            <i class="bi bi-calendar"></i> Projet d’expérimentation matérielle — Site statique réalisé pour le cours (TP3) 
-        </p>
-        <p class="mb-2">
-            Données basées sur tests réels avec Raspberry Pi 4 + LEDs GPIO.
-        </p>
-        <p class="mb-0 small">
-            <i class="bi bi-link-45deg"></i> Sources : 
-            <a href="https://nextcloud.com/" target="_blank" class="text-white-50 text-decoration-none">Nextcloud</a> | 
-            <a href="https://www.raspberrypi.com/" target="_blank" class="text-white-50 text-decoration-none">Raspberry Pi</a> | 
-            <a href="https://photoprism.app/" target="_blank" class="text-white-50 text-decoration-none">PhotoPrism</a>
-        </p>
-    </div>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "Image %1 sur %2"
+        });
+    </script>
 </body>
+
 </html>
