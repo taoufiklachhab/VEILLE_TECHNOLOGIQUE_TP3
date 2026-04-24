@@ -637,7 +637,91 @@ def blink_bleue(times=3):<br>
             <h2 class="section-title"><i class="bi bi-cpu"></i> Logiciel</h2>
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <p>Contenu de la section 5 : Logiciel</p>
+                    <h3><i class="bi bi-diagram-3"></i> Récapitulatif de l'architecture logicielle</h3>
+                    <ul>
+                        <li>
+                            <a href="#5-RasberryPi">
+                                <strong>Raspberry Pi OS (64-bit)</strong>
+                                : Système d'exploitation léger et optimisé pour le Raspberry Pi
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#6-ConfigIP+SSH">
+                                <strong>USB 128 Go + MicroSSD</strong>
+                                : Stockage persistant des données
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#7-Nextcloud">
+                                <strong>Nextcloud</strong>
+                                : Serveur de fichiers et de synchronisation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#8-PhotoPrism">
+                                <strong>PhotoPrism</strong>
+                                : Galerie photo moderne avec indexation et recherche
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#9-LED">
+                                <strong>LED Bleue (GPIO 17)</strong>
+                                : Feedback visuel physique lors de l'ajout de photos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-1">
+                <div class="card-body">
+                    <!-- OS Raspberry Pi 4 -->
+                    <section id="5-RasberryPi">
+                        <h3>OS Raspberry Pi 4: Raspberry Pi OS (64-bit)</h3>
+                        <p>Puisque nous utilisons un Raspberry Pi 4, nous optons pour Raspberry Pi OS (64-bit), un
+                            système d'exploitation léger et optimisé pour le téléversement des fichiers.</p>
+
+
+                    </section>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-1">
+                <div class="card-body">
+                    <!-- Connexion Réseau + SSH -->
+                    <section id="6-ConfigIP+SSH">
+                        <p>Configuration réseau : IP fixe sur le réseau local</p>
+                        <p><strong>Justification :</strong> Nécessaire pour accéder aux services (Nextcloud, PhotoPrism)
+                            de manière fiable. Configuration via <code>/etc/dhcpcd.conf</code>.</p>
+                    </section>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-1">
+                <div class="card-body">
+                    <!-- Nextcloud -->
+                    <section id="7-Nextcloud">
+                        <p>Applications : Nextcloud (port 8080)</p>
+                        <p><strong>Schéma d'architecture logicielle :</strong></p>
+                        <img src="./img/architecture.png" alt="Architecture logicielle" class="img-fluid">
+                    </section>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-1">
+                <div class="card-body">
+                    <!-- PhotoPrism -->
+                    <section id="8-PhotoPrism">
+                        <p>Applications : PhotoPrism (port 2342)</p>
+                        <p><strong>Schéma d'architecture logicielle :</strong></p>
+                        <img src="./img/architecture.png" alt="Architecture logicielle" class="img-fluid">
+                    </section>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-1">
+                <div class="card-body">
+                    <!-- OS Raspberry Pi 4 -->
+                    <section id="9-LED">
+                        <p>Script de notification : LED bleue (GPIO 17)</p>
+                        <p><strong>Schéma d'architecture logicielle :</strong></p>
+                        <img src="./img/architecture.png" alt="Architecture logicielle" class="img-fluid">
+                    </section>
                 </div>
             </div>
     </main>
