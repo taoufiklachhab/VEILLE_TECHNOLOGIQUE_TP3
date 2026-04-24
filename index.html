@@ -282,19 +282,27 @@
                         <code>/mnt/storage</code>. Ajout au fstab pour montage automatique. Test de vitesse avec
                         <code>dd</code> et copie de fichiers depuis un PC via Samba.
                     </p>
-
-                    <div class="main-image">
-                        <a href="./img/usb.jpeg" data-lightbox="exp2" data-title="Montage du USB">
-                            <img src="./img/usb.jpeg" alt="USB montage" class="gallery-img">
-                        </a>
+                    <div class="row">
+                        <div class="col-md-6 main-image">
+                            <a href="./img/usb.jpeg" data-lightbox="exp2" data-title="Montage du USB">
+                                <img src="./img/usb.jpeg" alt="USB montage" class="gallery-img">
+                            </a>
+                        </div>
+                        <div class="col-md-6 main-image">
+                            <a href="./img/5-USB-RasberryPi.jpg" data-lightbox="exp2" data-title="Connexion du USB">
+                                <img src="./img/5-USB-RasberryPi.jpg" alt="USB connecté" class="gallery-img">
+                            </a>
+                        </div>
                     </div>
+
 
                     <p><strong>Résultat :</strong> Lecture séquentielle : 350 MB/s, écriture : 320 MB/s. Montage
                         automatique réussi via fstab. Pas de déconnexion intempestive.</p>
                     <p><strong>Avis :</strong> Le USB est un énorme plus pour la réactivité et la fiabilité.
                         Limite : le port USB partage la bande passante avec Ethernet, mais reste acceptable.</p>
                     <div class="validation-success">
-                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de
+                            l'hypothèse</strong>
                         — La USB est parfaitement adapté et recommandé pour tout serveur domestique sur RPi.
                     </div>
                 </div>
@@ -303,14 +311,16 @@
             <!-- Exp 3 : Nextcloud -->
             <div class="card exp-card">
                 <div class="card-body">
-                    <h3><i class="bi bi-cloud-upload text-primary"></i> Exp. 3 : Installation de Nextcloud avec Docker
+                    <h3><i class="bi bi-cloud-upload text-primary"></i> Exp. 3 : Installation de Nextcloud avec
+                        Docker
                     </h3>
                     <p><strong>Membre(s) :</strong> <span class="member-badge">Vosa</span></p>
                     <p><strong>Technologie(s) :</strong> RPi4, Docker, Nextcloud, USB</p>
                     <p><strong>Objectif :</strong> Vérifier que Nextcloud tourne correctement et permet
                         l'upload/partage/suppression de fichiers.</p>
                     <p><strong>Contexte :</strong> Installation de Docker + Docker Compose. Création d'un fichier
-                        <code>docker-compose.yml</code> avec Nextcloud + MariaDB + Redis. Montage de la USB comme volume
+                        <code>docker-compose.yml</code> avec Nextcloud + MariaDB + Redis. Montage de la USB comme
+                        volume
                         de données. Accès via navigateur depuis un PC du même réseau.
                     </p>
 
@@ -359,14 +369,18 @@ services:<br>
                         </div>
                     </div>
 
-                    <p><strong>Résultat :</strong> Nextcloud fonctionne fluide pour 1 utilisateur. Upload d'un fichier
-                        de 500 Mo en ~15 secondes. Suppression instantanée. Consommation CPU max à 70% pendant l'upload.
+                    <p><strong>Résultat :</strong> Nextcloud fonctionne fluide pour 1 utilisateur. Upload d'un
+                        fichier
+                        de 500 Mo en ~15 secondes. Suppression instantanée. Consommation CPU max à 70% pendant
+                        l'upload.
                     </p>
                     <p><strong>Avis :</strong> Nextcloud est un peu lourd pour le RPi4 (1 Go RAM), mais tout à fait
-                        utilisable pour usage personnel. Limite : plusieurs utilisateurs simultanés pourraient saturer
+                        utilisable pour usage personnel. Limite : plusieurs utilisateurs simultanés pourraient
+                        saturer
                         la RAM.</p>
                     <div class="validation-success">
-                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de
+                            l'hypothèse</strong>
                         — Nextcloud est viable pour un usage personnel ou petite famille.
                     </div>
                 </div>
@@ -378,7 +392,8 @@ services:<br>
                     <h3><i class="bi bi-images text-danger"></i> Exp. 4 : Installation de PhotoPrism</h3>
                     <p><strong>Membre(s) :</strong> <span class="member-badge">Taoufik</span></p>
                     <p><strong>Technologie(s) :</strong> RPi4, Docker, PhotoPrism, USB</p>
-                    <p><strong>Objectif :</strong> Disposer d'une galerie photo moderne (alternative à Google Photos)
+                    <p><strong>Objectif :</strong> Disposer d'une galerie photo moderne (alternative à Google
+                        Photos)
                         sur RPi4.</p>
                     <p><strong>Contexte :</strong> Installation via Docker Compose avec configuration allégée
                         (désactivation TensorFlow, reconnaissance faciale, classification). Utilisation de SQLite au
@@ -420,12 +435,14 @@ environment:<br>
                         </div>
                     </div>
 
-                    <p><strong>Résultat :</strong> PhotoPrism accessible sur <code>http://ip:2342</code>. Indexation de
+                    <p><strong>Résultat :</strong> PhotoPrism accessible sur <code>http://ip:2342</code>. Indexation
+                        de
                         50 photos en ~2 minutes. Interface fluide, recherche par date/lieu fonctionnelle.</p>
                     <p><strong>Avis :</strong> PhotoPrism est bien adapté au RPi4 après désactivation des
                         fonctionnalités IA lourdes. Interface moderne, reconnaissance de base satisfaisante.</p>
                     <div class="validation-success">
-                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de
+                            l'hypothèse</strong>
                         — PhotoPrism est une excellente solution de galerie photo pour RPi4.
                     </div>
                 </div>
@@ -480,7 +497,8 @@ def blink_bleue(times=3):<br>
                     <p><strong>Avis :</strong> Solution très efficace pour un feedback utilisateur physique. Bleue
                         clignotante → ajout réussi. Limite : nécessite un script en arrière-plan (systemd).</p>
                     <div class="validation-success">
-                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de l'hypothèse</strong>
+                        <i class="bi bi-check-circle-fill"></i> <strong>Avis final : Validation de
+                            l'hypothèse</strong>
                         — La LED GPIO offre un retour visuel clair et satisfaisant pour les opérations d'ajout.
                     </div>
                 </div>
@@ -495,7 +513,8 @@ def blink_bleue(times=3):<br>
                     <p><strong>Technologie(s) :</strong> RPi4, Docker, Immich, PostgreSQL, Redis</p>
                     <p><strong>Objectif :</strong> Tester Immich comme alternative à PhotoPrism pour la gestion de
                         photos.</p>
-                    <p><strong>Contexte :</strong> Installation via Docker Compose officiel. Configuration de PostgreSQL
+                    <p><strong>Contexte :</strong> Installation via Docker Compose officiel. Configuration de
+                        PostgreSQL
                         et Redis. Tentative de résolution des problèmes d'authentification et de connexion.</p>
 
                     <div class="code-block">
@@ -509,13 +528,17 @@ def blink_bleue(times=3):<br>
                     </div>
 
                     <p><strong>Résultat :</strong> Après plusieurs heures de dépannage, Immich ne parvenait pas à
-                        démarrer correctement. Le service web restait inaccessible malgré des conteneurs PostgreSQL et
+                        démarrer correctement. Le service web restait inaccessible malgré des conteneurs PostgreSQL
+                        et
                         Redis fonctionnels.</p>
-                    <p><strong>Avis :</strong> Immich est une solution prometteuse mais trop complexe et gourmande en
-                        ressources pour un Raspberry Pi 4B 1Go. La configuration est lourde et le débogage difficile.
+                    <p><strong>Avis :</strong> Immich est une solution prometteuse mais trop complexe et gourmande
+                        en
+                        ressources pour un Raspberry Pi 4B 1Go. La configuration est lourde et le débogage
+                        difficile.
                         PhotoPrism est plus léger et plus simple à installer.</p>
                     <div class="validation-fail">
-                        <i class="bi bi-x-circle-fill"></i> <strong>Avis final : Technologie insatisfaisante</strong> —
+                        <i class="bi bi-x-circle-fill"></i> <strong>Avis final : Technologie
+                            insatisfaisante</strong> —
                         Immich est trop complexe et trop gourmand pour notre configuration. Nécessité de trouver une
                         technologie de remplacement (PhotoPrism).
                     </div>
